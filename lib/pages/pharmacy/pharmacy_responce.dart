@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:project_samaritan/pages/map/map_page.dart';
 import 'package:project_samaritan/services/get_catagory.dart';
+
 class PharmacyResponseList extends StatelessWidget {
-  final String MedName ;
-  const PharmacyResponseList({Key? key, required this.MedName}) : super(key: key);
+  final String MedName;
+  const PharmacyResponseList({Key? key, required this.MedName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     print(
         "===================================================================");
-    print(MedName);
+    print(MedName.toLowerCase().trim());
     print(
         "===================================================================");
 
@@ -30,10 +32,9 @@ class PharmacyResponseList extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           )),
       body: Query(
-        options: QueryOptions(document: gql(CategoryService.location_query),
-          variables: {
-            "name":MedName
-          },
+        options: QueryOptions(
+          document: gql(CategoryService.location_query),
+          variables: {"name": MedName.toLowerCase()},
         ),
         builder: (QueryResult result,
             {VoidCallback? refetch, FetchMore? fetchMore}) {
@@ -58,11 +59,13 @@ class PharmacyResponseList extends StatelessWidget {
           if (data == null || data['users'] == null) {
             print(
                 "================================6666666666666666===================================");
-            return Text('No data available', style: TextStyle(color: Theme.of(context).colorScheme.tertiary),);
+            return Text(
+              'No data available',
+              style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+            );
           }
 
           return ListView.builder(
-
             // physics: NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               print(
@@ -79,16 +82,16 @@ class PharmacyResponseList extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              MapPage(locationResult: result.data!['users'][index], medName: MedName,)),
+                          builder: (context) => MapPage(
+                                locationResult: result.data!['users'][index],
+                                medName: MedName.toLowerCase(),
+                              )),
                     );
                   },
                   child: Card(
                     elevation: 30,
-                    shape:
-                    RoundedRectangleBorder(
-                      borderRadius:
-                      BorderRadius.only(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(15),
                           topRight: Radius.circular(15)),
                     ),
@@ -103,22 +106,19 @@ class PharmacyResponseList extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             backgroundColor:
-                            Theme.of(context).colorScheme.background,
+                                Theme.of(context).colorScheme.background,
                             radius: 48,
                             child: CircleAvatar(
                               radius: 36,
                               backgroundImage:
-                              AssetImage('assets/images/logo.png'),
+                                  AssetImage('assets/images/logo.png'),
                             ),
                           ),
                           Expanded(
                             child: Text(
-                              result.data?['users'][index]
-                              ["pharmacy_name"],
+                              result.data?['users'][index]["pharmacy_name"],
                               style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .tertiary,
+                                color: Theme.of(context).colorScheme.tertiary,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25,
                               ),
@@ -135,6 +135,7 @@ class PharmacyResponseList extends StatelessWidget {
           );
         },
       ),
-    );;
+    );
+    ;
   }
 }

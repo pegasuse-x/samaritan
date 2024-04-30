@@ -11,18 +11,14 @@ import 'package:project_samaritan/pages/speech/speech_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:project_samaritan/theme/styles.dart' as styleClass;
 
-
 class SamaritanApp extends StatefulWidget {
   const SamaritanApp({Key? key}) : super(key: key);
-
 
   @override
   State<SamaritanApp> createState() => _SamaritanAppState();
 }
 
 class _SamaritanAppState extends State<SamaritanApp> {
-
-
   int _currentIndex = 0;
   late PageController _pageController;
 
@@ -53,57 +49,58 @@ class _SamaritanAppState extends State<SamaritanApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 20,
-                color: Colors.black.withOpacity(.1),
-              )
-            ],
-          ),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-              child: GNav(
-                rippleColor: Colors.grey[300]!,
-                hoverColor: Colors.grey[100]!,
-                gap: 8,
-                activeColor: Theme.of(context).colorScheme.secondary,
-                iconSize: 24,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                duration: const Duration(milliseconds: 400),
-                tabBackgroundColor: Colors.grey[100]!,
-                color:Theme.of(context).colorScheme.secondary,
-                tabs: const [
-                  GButton(
-                    icon: Icons.home,
-                  ),
-                  GButton(
-                    icon: Icons.camera,
-                  ),
-                  GButton(
-                    icon: Icons.alarm,
-                  ),
-                  GButton(
-                    icon: Icons.newspaper,
-                  ),
-                  GButton(
-                    icon: Icons.save_alt_rounded,
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-              ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.background,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 8,
+              activeColor: Theme.of(context).colorScheme.secondary,
+              iconSize: 24,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.grey[100]!,
+              color: Theme.of(context).colorScheme.secondary,
+              tabs: const [
+                GButton(
+                  icon: Icons.home,
+                ),
+                GButton(
+                  icon: Icons.camera,
+                ),
+                GButton(
+                  icon: Icons.alarm,
+                ),
+                GButton(
+                  icon: Icons.newspaper,
+                ),
+                GButton(
+                  // icon: Icons.add,
+                  icon: Icons.save_alt_rounded,
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
             ),
           ),
         ),
-        body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+      ),
+      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
     );
   }
 }

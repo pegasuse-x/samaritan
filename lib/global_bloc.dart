@@ -98,7 +98,7 @@ class GlobalBloc {
     is_loading = true;
 
     Response response = await get(Uri.parse(
-        "https://newsapi.org/v2/top-headlines?country=${countryCode}&category=health&apiKey=58f3917b739d41f3868b3a46679ef510"));
+        "https://newsapi.org/v2/top-headlines?country=${countryCode}&category=health&apiKey=d6da145ffe134783a6fc3150a1f93058"));
 
     if (response.statusCode == 200) {
       is_loading = false;

@@ -45,26 +45,24 @@ void main() async {
   final is_Dark = sharedPreferences.getBool('is_dark') ?? false;
 
   runApp(AppStateContainer(
-    child: MyApp(showHome: showHome, is_Dark : is_Dark),
+    child: MyApp(showHome: showHome, is_Dark: is_Dark),
   ));
 }
+
 // ThemeModel _themeManager = ThemeModel();
 class MyApp extends StatefulWidget {
   final bool showHome;
   final bool is_Dark;
-  const MyApp({required this.showHome, required this.is_Dark });
+  const MyApp({required this.showHome, required this.is_Dark});
 
   @override
-  State<MyApp> createState() => _MyAppState( is_Dark: is_Dark);
+  State<MyApp> createState() => _MyAppState(is_Dark: is_Dark);
 }
-
-
 
 class _MyAppState extends State<MyApp> {
   final bool is_Dark;
 
   _MyAppState({required this.is_Dark});
-
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +70,7 @@ class _MyAppState extends State<MyApp> {
         "https://flexible-wren-26.hasura.app/v1/graphql/",
         defaultHeaders: {
           "x-hasura-admin-secret":
-          "ATTrUy0HHKdRxhQxjBrKSu3AEGW3SdmBZmj7paW5tezpEik5xMTcTnxckOVJI9Fz"
+              "ATTrUy0HHKdRxhQxjBrKSu3AEGW3SdmBZmj7paW5tezpEik5xMTcTnxckOVJI9Fz"
         });
     final AuthLink authLink = AuthLink(
       getToken: () async => 'Bearer <>',
@@ -93,9 +91,9 @@ class _MyAppState extends State<MyApp> {
     return Provider<GlobalBloc>.value(
       value: globalBloc,
       child: Sizer(builder: (context, orientation, deviceType) {
-          return ChangeNotifierProvider(
-            create: (context) => ThemeSettings(),
-          builder: (context,snapshot) {
+        return ChangeNotifierProvider(
+          create: (context) => ThemeSettings(),
+          builder: (context, snapshot) {
             // final settings = context.read<ThemeSetings>();
             final settings = Provider.of<ThemeSettings>(context);
             return GraphQLProvider(
@@ -125,7 +123,6 @@ class _MyAppState extends State<MyApp> {
               ),
             );
           },
-
         );
       }),
     );
