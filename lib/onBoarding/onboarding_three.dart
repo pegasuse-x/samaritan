@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ThirdStartPage extends StatefulWidget {
-  const ThirdStartPage({super.key});
+class OnboardingThree extends StatefulWidget {
+  const OnboardingThree({super.key});
 
   @override
-  State<ThirdStartPage> createState() => _ThirdStartPageState();
+  State<OnboardingThree> createState() => OnboardingThreeState();
 }
 
-class _ThirdStartPageState extends State<ThirdStartPage>
+class OnboardingThreeState extends State<OnboardingThree>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 

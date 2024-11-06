@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_samaritan/utils/get_started.dart';
 
-class ForthStartPage extends StatefulWidget {
-  const ForthStartPage({super.key});
+class OnboardingFour extends StatefulWidget {
+  const OnboardingFour({super.key});
 
   @override
-  State<ForthStartPage> createState() => _ForthStartPageState();
+  State<OnboardingFour> createState() => _OnboardingFourState();
 }
 
-class _ForthStartPageState extends State<ForthStartPage>
+class _OnboardingFourState extends State<OnboardingFour>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 

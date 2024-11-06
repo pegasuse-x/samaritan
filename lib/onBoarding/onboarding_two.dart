@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SecondStartPage extends StatefulWidget {
-  const SecondStartPage({super.key});
+class OnboardingTwo extends StatefulWidget {
+  const OnboardingTwo({super.key});
 
   @override
-  State<SecondStartPage> createState() => _SecondStartPageState();
+  State<OnboardingTwo> createState() => _OnboardingTwoState();
 }
 
-class _SecondStartPageState extends State<SecondStartPage>
+class _OnboardingTwoState extends State<OnboardingTwo>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_samaritan/onboarding/page1.dart';
-import 'package:project_samaritan/onboarding/page2.dart';
-import 'package:project_samaritan/onboarding/page3.dart';
-import 'package:project_samaritan/onboarding/page4.dart';
+import 'package:project_samaritan/onboarding/onboarding_one.dart';
+import 'package:project_samaritan/onboarding/onboarding_two.dart';
+import 'package:project_samaritan/onboarding/onboarding_three.dart';
+import 'package:project_samaritan/onboarding/onboarding_four.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class StartPage extends StatefulWidget {
@@ -34,22 +34,22 @@ class _StartPageState extends State<StartPage> {
             Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              child: FirstStartPage(),
+              child: OnboardingOne(),
             ),
             Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              child: SecondStartPage(),
+              child: OnboardingTwo(),
             ),
             Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              child: ThirdStartPage(),
+              child: OnboardingThree(),
             ),
             Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              child: ForthStartPage(),
+              child: OnboardingFour(),
             )
           ],
         ),

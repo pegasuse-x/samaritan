@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:project_samaritan/models/transaction.dart';
@@ -42,8 +43,10 @@ class _AnotherSavedState extends State<SavedPage>
         title: Center(
           child: Text(
             'Saved medicines',
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                fontSize: 30, color: Colors.white),
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(fontSize: 30, color: Colors.white),
           ),
         ),
         shape: RoundedRectangleBorder(
@@ -56,6 +59,8 @@ class _AnotherSavedState extends State<SavedPage>
         valueListenable: Boxes.getTransactions().listenable(),
         builder: (content, box, _) {
           final medicines = box.values.toList().cast<Transaction>();
+          final leng = medicines.length;
+
           return buildContent(medicines);
         },
       ),

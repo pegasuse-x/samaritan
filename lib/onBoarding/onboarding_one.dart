@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class FirstStartPage extends StatefulWidget {
-  const FirstStartPage({super.key});
+class OnboardingOne extends StatefulWidget {
+  const OnboardingOne({super.key});
 
   @override
-  State<FirstStartPage> createState() => _FirstStartPageState();
+  State<OnboardingOne> createState() => _OnboardingOneState();
 }
 
-class _FirstStartPageState extends State<FirstStartPage>
+class _OnboardingOneState extends State<OnboardingOne>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
